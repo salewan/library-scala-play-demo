@@ -1,0 +1,18 @@
+@(form: Form[_], title: String)(content: Html)(implicit messagesProvider: MessagesProvider)
+
+<div class="pt-5 pb-5">
+    <div class="container-sm">
+        <div class="d-flex justify-content-center">
+            <h1>@title</h1>
+        </div>
+
+        @if(form.hasGlobalErrors) {
+            <ul>
+            @for(error <- form.globalErrors) {
+                <div class="alert alert-danger" role="alert">@error.format</div>
+            }
+            </ul>
+        }
+        @content
+    </div>
+</div>

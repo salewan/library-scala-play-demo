@@ -1,0 +1,33 @@
+@import actions.UserRequest
+@(form: Form[(String, String)], idOpt: Long = 0)(implicit userRequest: UserRequest[AnyContent], messagesProvider: MessagesProvider)
+
+@formTitle = @{
+    if (idOpt > 0) "Редактирование книги"
+    else "Добавление книги"
+}
+
+@submitAction = @{
+    if (idOpt > 0) routes.HomeController.editBookPost(idOpt)
+    else routes.HomeController.addBookPostNew()
+}
+
+@main("Библиотека") {
+
+    @contentLayout {
+
+        @formLayout(form, formTitle) {
+
+            @b4.vertical.form(helper.CSRF(submitAction)) { implicit vfc =>
+                <div class="auth-container container">
+                    @b4.text(form("isn"), '_label -> "ISN Номер", 'placeholder -> "isn номер", 'autocomplete -> "off")
+                    @b4.text(form("name"), '_label -> "Название", 'placeholder -> "Название", 'autocomplete -> "off")
+                    <div class="row justify-content-center mb-3">
+                        <button type="submit" class="btn btn-primary">
+                            Сохранить
+                        </button>
+                    </div>
+                </div>
+            }
+        }
+    }
+}

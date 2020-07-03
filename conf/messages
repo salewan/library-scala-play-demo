@@ -1,0 +1,5 @@
+login.error.LoginRequired=Поле логин обязательно для ввода
+login.error.PasswordRequired=Поле пароль обязательно для ввода
+login.error.WrongPassword=Неверный пароль
+book.error.ISNRequired=Поле isn номер обязательно для ввода
+login.error.NameRequired=Поле название обязательно для ввода

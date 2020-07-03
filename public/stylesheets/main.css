@@ -1,0 +1,16 @@
+.auth-container {
+    max-width: 500px;
+    padding: 0;
+}
+
+td.table-toolbar-cell {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    height: 49px;
+}
+
+.table-toolbar-cell > button {
+    margin: 0.5rem;
+    display: inline-flex;
+}

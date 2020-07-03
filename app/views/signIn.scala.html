@@ -1,0 +1,17 @@
+@(loginForm: Form[(String, String)])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+
+@main("Библиотека::Вход") {
+    @formLayout(loginForm, "Вход в библиотеку") {
+        @b4.vertical.form(helper.CSRF(routes.AuthController.signInPost())) { implicit vfc =>
+            <div class="auth-container container-sm">
+                @b4.text(loginForm("login"), '_label -> "Логин", 'placeholder -> "логин", 'autocomplete -> "off")
+                @b4.password(loginForm("password"), '_label -> "Пароль", 'placeholder -> "пароль", 'autocomplete -> "off")
+                <div class="row justify-content-center mb-3">
+                    <button type="submit" class="btn btn-primary">
+                        Войти
+                    </button>
+                </div>
+            </div>
+        }
+    }
+}
